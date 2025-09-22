@@ -2,7 +2,7 @@ from flask import Flask, render_template, request
 import requests
 import os
 app = Flask(__name__)
-API_KEY = "be76618aaf010e326987821d5b39e939"
+API_KEY = os.environ.get("OPENWEATHER_API_KEY")  # safer way
 
 def get_weather(city):
     url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
